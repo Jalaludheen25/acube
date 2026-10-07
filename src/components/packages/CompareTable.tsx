@@ -23,7 +23,7 @@ export function CompareTable() {
     <Reveal className="mt-14 lg:mt-20">
       <table role="table" className="block w-full border-collapse text-left sm:table">
         <caption className="sr-only">Package comparison</caption>
-        <thead role="rowgroup" className="sticky top-20 z-10 block bg-white/90 backdrop-blur-md sm:table-header-group">
+        <thead role="rowgroup" className="sticky top-24 z-10 block bg-white sm:table-header-group">
           <tr role="row" className="grid grid-cols-3 border-b border-blue-600 sm:table-row">
             <th role="columnheader" scope="col" className="hidden py-5 pr-6 text-eyebrow font-normal text-stone sm:table-cell">
               Included
@@ -49,11 +49,19 @@ export function CompareTable() {
               ))}
             </tr>
           ))}
+          <tr role="row" className="grid grid-cols-3 sm:table-row">
+            <th role="rowheader" scope="row" className="col-span-3 pb-1 pt-5 pr-6 text-[0.9375rem] font-medium text-ink sm:py-6">
+              Pricing
+            </th>
+            {packages.map((p) => (
+              <td key={p.slug} role="cell" className="px-2 pb-5 pt-2 text-center sm:py-6">
+                <span className="mx-auto block w-fit font-accent text-xl text-gradient">{packagesIntro.pricing}</span>
+                <span className="mt-1 block text-xs leading-snug text-stone">{packagesIntro.pricingNote}</span>
+              </td>
+            ))}
+          </tr>
         </tbody>
       </table>
-      <p className="mt-8 max-w-2xl text-sm leading-relaxed text-stone">
-        <span className="font-accent text-lg text-ink">{packagesIntro.pricing}</span> — {packagesIntro.compareNote}
-      </p>
     </Reveal>
   )
 }

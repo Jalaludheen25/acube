@@ -73,6 +73,8 @@ type ButtonOwnProps = {
   size?: Size
   magnetic?: boolean
   icon?: ReactNode | null
+  /** The icon is a brand mark (e.g. WhatsApp): no badge behind it, and a lift-and-tilt hover instead of a spin. */
+  brandIcon?: boolean
   className?: string
 }
 
@@ -82,7 +84,7 @@ type AsButton = ButtonOwnProps & { href?: undefined } & Omit<ButtonHTMLAttribute
 const isExternal = (href: string) => /^(https?:|mailto:|tel:)/.test(href)
 
 export function Button(props: AsLink | AsButton) {
-  const { children, variant = 'primary', size = 'md', magnetic = true, icon, className, ...rest } = props
+  const { children, variant = 'primary', size = 'md', magnetic = true, icon, brandIcon = false, className, ...rest } = props
   const v = variants[variant]
   const s = sizes[size]
 
@@ -95,11 +97,18 @@ export function Button(props: AsLink | AsButton) {
           {children}
         </span>
       </span>
-      {icon !== null && (
-        <span className={cn('relative grid shrink-0 place-items-center rounded-full transition-colors duration-500', s.icon, v.icon)}>
-          <span className="transition-transform duration-700 ease-out-expo group-hover:rotate-45">{icon ?? <ArrowUpRight size={16} strokeWidth={1.5} />}</span>
-        </span>
-      )}
+      {icon !== null &&
+        (brandIcon ? (
+          <span className={cn('relative grid shrink-0 place-items-center', s.icon)}>
+            <span className="grid place-items-center rounded-full transition-transform duration-500 ease-out-expo group-hover:-translate-y-0.5 group-hover:-rotate-[10deg] group-hover:scale-110">
+              {icon}
+            </span>
+          </span>
+        ) : (
+          <span className={cn('relative grid shrink-0 place-items-center rounded-full transition-colors duration-500', s.icon, v.icon)}>
+            <span className="transition-transform duration-700 ease-out-expo group-hover:rotate-45">{icon ?? <ArrowUpRight size={16} strokeWidth={1.5} />}</span>
+          </span>
+        ))}
     </>
   )
 

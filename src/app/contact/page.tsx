@@ -3,9 +3,10 @@ import type { ReactNode } from 'react'
 import { ContactForm } from '@/components/contact/ContactForm'
 import { PageHero } from '@/components/sections/PageHero'
 import { VisitUs } from '@/components/sections/VisitUs'
-import { Mail, MapPin, Phone, WhatsApp } from '@/components/ui/Icons'
+import { Mail, MapPin, Phone } from '@/components/ui/Icons'
 import { Reveal, RevealLines } from '@/components/ui/Reveal'
 import { Eyebrow } from '@/components/ui/SectionHeading'
+import { WhatsAppLogo } from '@/components/ui/WhatsAppLogo'
 import { images } from '@/content/images'
 import { site, whatsappUrl } from '@/content/site'
 import { pageMetadata } from '@/lib/seo'
@@ -16,10 +17,14 @@ export const metadata = pageMetadata({
   path: '/contact',
 })
 
-function Detail({ icon, label, children }: { icon: ReactNode; label: string; children: ReactNode }) {
+function Detail({ icon, label, children, bare = false }: { icon: ReactNode; label: string; children: ReactNode; bare?: boolean }) {
   return (
-    <div className="grid grid-cols-[2.75rem_1fr] gap-4 border-b border-ink/10 py-6">
-      <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/12 bg-white text-accent-strong">{icon}</span>
+    <div className="group grid grid-cols-[2.75rem_1fr] gap-4 border-b border-ink/10 py-6">
+      {bare ? (
+        <span className="grid h-11 w-11 place-items-center">{icon}</span>
+      ) : (
+        <span className="grid h-11 w-11 place-items-center rounded-full border border-ink/12 bg-white text-accent-strong">{icon}</span>
+      )}
       <div className="flex flex-col gap-1.5">
         <span className="text-eyebrow text-stone">{label}</span>
         <div className="flex flex-col gap-1 text-[0.9375rem] text-ink">{children}</div>
@@ -66,7 +71,7 @@ export default function ContactPage() {
                   </a>
                 ))}
               </Detail>
-              <Detail icon={<WhatsApp size={18} />} label="WhatsApp">
+              <Detail bare icon={<WhatsAppLogo size={44} className="transition-transform duration-500 ease-out-expo group-hover:-translate-y-px group-hover:-rotate-[10deg] group-hover:scale-110" />} label="WhatsApp">
                 <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   {site.whatsapp.display}
                 </a>

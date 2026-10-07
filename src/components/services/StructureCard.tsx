@@ -37,7 +37,7 @@ export function StructureCard({
             className="absolute inset-0 -z-10 hidden scale-110 opacity-0 transition-[opacity,transform] duration-[1200ms] ease-out-expo group-hover:scale-100 group-hover:opacity-100 [@media(hover:hover)]:block"
           >
             <Image src={img.src} alt="" fill sizes="(min-width: 1024px) 33vw, 50vw" placeholder="blur" className="object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/90 to-blue-50/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-white via-white/75 to-white/10" />
           </div>
 
           <div className="flex items-start justify-between">

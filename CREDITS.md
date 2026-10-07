@@ -55,6 +55,8 @@ Images can be viewed at `https://images.unsplash.com/<Unsplash image>`.
 
 The ACUBE logo in `public/brand/` is a vector trace of ACUBE's original logo artwork.
 
+The WhatsApp icon (`src/assets/brand/whatsapp.webp`) is cropped from the supplied `src/assets/images/whatsapp-logo.webp`. WhatsApp and its logo are trademarks of Meta Platforms, Inc.
+
 ## Typefaces
 
 [Sora](https://fonts.google.com/specimen/Sora), [Plus Jakarta Sans](https://fonts.google.com/specimen/Plus+Jakarta+Sans), [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) and [Geist Mono](https://vercel.com/font). All are licensed under the SIL Open Font License.

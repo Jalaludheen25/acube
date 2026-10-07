@@ -57,7 +57,7 @@ export function IndustriesExplorer() {
                 <Image src={images[ind.image].src} alt={images[ind.image].alt} fill sizes="(min-width: 1024px) 45vw, 100vw" placeholder="blur" className="object-cover" />
               </div>
             ))}
-            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/20 via-transparent to-transparent" />
+            <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/10 via-transparent to-transparent" />
             <div className="absolute inset-x-4 bottom-4 rounded-[1.35rem] border border-white/60 bg-white/85 p-6 shadow-[0_30px_60px_-30px_rgba(11,21,48,0.45)] backdrop-blur-xl xl:inset-x-6 xl:bottom-6 xl:p-8">
               <AnimatePresence mode="wait">
                 <motion.div

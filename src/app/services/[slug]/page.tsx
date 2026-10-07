@@ -6,10 +6,11 @@ import { ProcessTimeline } from '@/components/sections/ProcessTimeline'
 import { JsonLd } from '@/components/seo/JsonLd'
 import { ServiceCard } from '@/components/services/ServiceCard'
 import { ExpandBackground } from '@/components/ui/ExpandBackground'
-import { Check, WhatsApp } from '@/components/ui/Icons'
+import { Check } from '@/components/ui/Icons'
 import { Button } from '@/components/ui/MagneticButton'
 import { Reveal, RevealWords } from '@/components/ui/Reveal'
 import { Eyebrow } from '@/components/ui/SectionHeading'
+import { WhatsAppLogo } from '@/components/ui/WhatsAppLogo'
 import { journey } from '@/content/company'
 import { images } from '@/content/images'
 import { getCategory, getService, services, servicesInCategory } from '@/content/services'
@@ -76,7 +77,7 @@ export default async function ServicePage(props: PageProps<'/services/[slug]'>) 
             <Button href={`/contact?service=${service.slug}#enquiry`} size="lg">
               Book Free Consultation
             </Button>
-            <Button href={whatsappUrl(`Hello ACUBE, I'd like to ask about ${service.title}.`)} target="_blank" size="lg" variant="secondary" icon={<WhatsApp size={16} />}>
+            <Button href={whatsappUrl(`Hello ACUBE, I'd like to ask about ${service.title}.`)} target="_blank" size="lg" variant="secondary" brandIcon icon={<WhatsAppLogo size={40} />}>
               Ask on WhatsApp
             </Button>
           </>

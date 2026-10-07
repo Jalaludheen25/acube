@@ -4,8 +4,9 @@ import { AnimatePresence, motion } from 'motion/react'
 import { useEffect, useRef, type RefObject } from 'react'
 
 import { TransitionLink } from '@/components/transition/TransitionLink'
-import { Mail, Phone, WhatsApp } from '@/components/ui/Icons'
+import { Mail, Phone } from '@/components/ui/Icons'
 import { Button } from '@/components/ui/MagneticButton'
+import { WhatsAppLogo } from '@/components/ui/WhatsAppLogo'
 import { mainNav, primaryCta, site, whatsappUrl } from '@/content/site'
 import { EASE_IN_OUT, EASE_OUT } from '@/lib/motion'
 import { cn, pad2 } from '@/lib/utils'
@@ -136,8 +137,8 @@ export function MobileMenu({ open, onClose, pathname, trapRoots }: Props) {
                 <a href={`tel:${site.phones[0].tel}`} className="inline-flex items-center gap-3 hover:text-ink">
                   <Phone size={16} /> {site.phones[0].display}
                 </a>
-                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-3 hover:text-ink">
-                  <WhatsApp size={16} /> WhatsApp {site.whatsapp.display}
+                <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="group inline-flex items-center gap-3 hover:text-ink">
+                  <WhatsAppLogo size={20} className="-ml-0.5 transition-transform duration-500 ease-out-expo group-hover:-translate-y-px group-hover:-rotate-[10deg] group-hover:scale-110" /> WhatsApp {site.whatsapp.display}
                 </a>
               </div>
               <div className="sm:justify-self-end">

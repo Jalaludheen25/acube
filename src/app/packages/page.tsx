@@ -1,5 +1,6 @@
 import { CompareTable } from '@/components/packages/CompareTable'
 import { PackageCards } from '@/components/packages/PackageCards'
+import { PackageSpotlight } from '@/components/packages/PackageSpotlight'
 import { CTASection } from '@/components/sections/CTASection'
 import { PageHero } from '@/components/sections/PageHero'
 import { StructureCard } from '@/components/services/StructureCard'
@@ -15,7 +16,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata = pageMetadata({
   title: 'Business Setup Packages',
   description:
-    'Starter, Professional and Enterprise business setup packages in Dubai — from your first trade licence to a full corporate partnership, tailored on a free consultation.',
+    "ACUBE's business setup packages — Starter, Professional, and Enterprise — from your first trade licence to a full corporate partnership, tailored on a free consultation.",
   path: '/packages',
 })
 
@@ -23,7 +24,7 @@ export default function PackagesPage() {
   return (
     <>
       <PageHero
-        variant="split"
+        variant="background"
         image={images.marinaDay}
         eyebrow="Packages"
         title={['Business setup', 'packages.']}
@@ -39,6 +40,7 @@ export default function PackagesPage() {
             </Button>
           </>
         }
+        aside={<PackageSpotlight />}
       />
 
       <section id="packages" aria-labelledby="packages-title" className="relative isolate scroll-mt-24">
@@ -51,13 +53,16 @@ export default function PackagesPage() {
         </div>
       </section>
 
-      <section aria-labelledby="compare-title" className="bg-white text-ink">
+      <section id="compare" aria-labelledby="compare-title" className="scroll-mt-24 bg-white text-ink">
         <div className="container-x py-24 sm:py-32 lg:py-40">
           <div className="flex flex-col gap-7">
             <Reveal y={12} blur={false}>
               <Eyebrow tone="light">Compare</Eyebrow>
             </Reveal>
             <RevealLines id="compare-title" lines={['Every package,', 'side by side.']} accent={[1]} accentClassName="font-accent w-fit text-gradient" className="text-display-lg" />
+            <Reveal delay={0.15} as="p" className="text-lede max-w-2xl text-stone">
+              {packagesIntro.compareNote}
+            </Reveal>
           </div>
           <CompareTable />
         </div>

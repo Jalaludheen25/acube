@@ -14,7 +14,7 @@ import { pageMetadata } from '@/lib/seo'
 export const metadata = pageMetadata({
   title: 'Business Setup Services in Dubai',
   description:
-    'End-to-end business setup solutions tailored for entrepreneurs, startups and global investors — company formation, visas, licensing, corporate, legal, documentation and government services in Dubai.',
+    'Business setup, company formation, corporate & legal, and government document services in Dubai — the full scope ACUBE handles, delivered end-to-end.',
   path: '/services',
 })
 

@@ -43,14 +43,15 @@ export const trust = {
   signature: '— ACUBE',
 }
 
-export type Principle = { title: string; description: string }
+/** `image` is an optional illustrative photograph (used by the homepage cards). */
+export type Principle = { title: string; description: string; image?: ImageKey }
 
 export const principles: Principle[] = [
-  { title: 'End-to-End Support', description: 'One partner from your first question to a fully operational business.' },
-  { title: 'Personal Guidance', description: 'Direct access to an experienced consultant who handles your setup personally.' },
-  { title: 'Local & Government Knowledge', description: 'Deep familiarity with UAE procedures, licensing, and approvals.' },
-  { title: 'Transparency', description: 'Clear communication and honest advice at every step.' },
-  { title: 'A Long-Term Partner', description: 'Support that continues long after your license is issued.' },
+  { title: 'End-to-End Support', description: 'One partner from your first question to a fully operational business.', image: 'abraStationDay' },
+  { title: 'Personal Guidance', description: 'Direct access to an experienced consultant who handles your setup personally.', image: 'officeBright' },
+  { title: 'Local & Government Knowledge', description: 'Deep familiarity with UAE procedures, licensing, and approvals.', image: 'heritageDoor' },
+  { title: 'Transparency', description: 'Clear communication and honest advice at every step.', image: 'burjBlue' },
+  { title: 'A Long-Term Partner', description: 'Support that continues long after your license is issued.', image: 'creekDhowDay' },
 ]
 
 export const values: Principle[] = [

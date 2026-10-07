@@ -1,7 +1,8 @@
-import { MapPin, WhatsApp } from '@/components/ui/Icons'
+import { MapPin } from '@/components/ui/Icons'
 import { Button } from '@/components/ui/MagneticButton'
 import { Reveal, RevealWords } from '@/components/ui/Reveal'
 import { Eyebrow } from '@/components/ui/SectionHeading'
+import { WhatsAppLogo } from '@/components/ui/WhatsAppLogo'
 import { mapsUrl, site, whatsappUrl } from '@/content/site'
 
 /** Stylised map of the creek-side neighbourhood — decorative, not geographic. */
@@ -74,7 +75,7 @@ export function VisitUs() {
             <Button href={mapsUrl} target="_blank" variant="secondary">
               Open in Google Maps
             </Button>
-            <Button href={whatsappUrl()} target="_blank" variant="secondary" icon={<WhatsApp size={16} />}>
+            <Button href={whatsappUrl()} target="_blank" variant="secondary" brandIcon icon={<WhatsAppLogo size={36} />}>
               WhatsApp
             </Button>
           </Reveal>

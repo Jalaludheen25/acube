@@ -1,8 +1,9 @@
 import { TransitionLink } from '@/components/transition/TransitionLink'
-import { MapPin, WhatsApp } from '@/components/ui/Icons'
+import { MapPin } from '@/components/ui/Icons'
 import { Button, TextLink } from '@/components/ui/MagneticButton'
 import { Reveal, RevealWords } from '@/components/ui/Reveal'
 import { Eyebrow } from '@/components/ui/SectionHeading'
+import { WhatsAppLogo } from '@/components/ui/WhatsAppLogo'
 import { serviceCategories } from '@/content/services'
 import { legalNav, mainNav, mapsUrl, primaryCta, site, whatsappUrl } from '@/content/site'
 
@@ -49,7 +50,7 @@ export function Footer() {
             <Button href={primaryCta.href} size="lg" variant="inverse">
               {primaryCta.label}
             </Button>
-            <Button href={whatsappUrl()} target="_blank" variant="inverse-outline" size="lg" icon={<WhatsApp size={16} />}>
+            <Button href={whatsappUrl()} target="_blank" variant="inverse-outline" size="lg" brandIcon icon={<WhatsAppLogo size={40} />}>
               WhatsApp
             </Button>
           </Reveal>
@@ -105,8 +106,8 @@ export function Footer() {
                   </li>
                 ))}
                 <li>
-                  <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={`${linkClass} inline-flex items-center gap-2`}>
-                    <WhatsApp size={15} /> WhatsApp
+                  <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={`${linkClass} group inline-flex items-center gap-2.5`}>
+                    <WhatsAppLogo size={20} className="transition-transform duration-500 ease-out-expo group-hover:-translate-y-px group-hover:-rotate-[10deg] group-hover:scale-110" /> WhatsApp
                   </a>
                 </li>
               </ul>

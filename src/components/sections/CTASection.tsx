@@ -3,10 +3,11 @@
 import { motion, useScroll, useTransform, type MotionStyle } from 'motion/react'
 import { useRef, type CSSProperties, type PointerEvent } from 'react'
 
-import { Check, WhatsApp } from '@/components/ui/Icons'
+import { Check } from '@/components/ui/Icons'
 import { Button } from '@/components/ui/MagneticButton'
 import { Reveal, RevealLines } from '@/components/ui/Reveal'
 import { Eyebrow } from '@/components/ui/SectionHeading'
+import { WhatsAppLogo } from '@/components/ui/WhatsAppLogo'
 import { ctaCopy } from '@/content/company'
 import { primaryCta, whatsappUrl } from '@/content/site'
 import { usePrefersReducedMotion } from '@/lib/hooks'
@@ -117,7 +118,7 @@ export function CTASection({
               <Button href={ctaHref} size="lg" variant="inverse">
                 {ctaLabel}
               </Button>
-              <Button href={whatsappUrl()} target="_blank" variant="inverse-outline" size="lg" icon={<WhatsApp size={16} />}>
+              <Button href={whatsappUrl()} target="_blank" variant="inverse-outline" size="lg" brandIcon icon={<WhatsAppLogo size={40} />}>
                 Chat on WhatsApp
               </Button>
             </Reveal>

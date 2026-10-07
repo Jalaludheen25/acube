@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useScroll, useTransform } from 'motion/react'
+import Image from 'next/image'
 import { useEffect, useRef, useState } from 'react'
 
 import { CardFX } from '@/components/ui/CardFX'
@@ -11,6 +12,7 @@ import { Button } from '@/components/ui/MagneticButton'
 import { Reveal, RevealLines } from '@/components/ui/Reveal'
 import { Eyebrow } from '@/components/ui/SectionHeading'
 import { principles } from '@/content/company'
+import { images } from '@/content/images'
 import { primaryCta, site } from '@/content/site'
 import { useMediaQuery, usePrefersReducedMotion } from '@/lib/hooks'
 import { cn, pad2 } from '@/lib/utils'
@@ -94,17 +96,33 @@ export function WhyAcube() {
                 <Reveal
                   as="article"
                   delay={pinned ? 0 : i * 0.06}
-                  className="group relative flex min-h-[19rem] w-[min(82vw,25rem)] lg:h-[min(58vh,30rem)] lg:min-h-[22rem] flex-col justify-between overflow-hidden rounded-[1.75rem] border border-white/60 bg-white p-7 text-ink shadow-[0_30px_70px_-40px_rgba(8,15,50,0.7)] transition-[border-color,box-shadow] duration-700 ease-out-expo hover:border-white hover:shadow-[0_40px_90px_-35px_rgba(8,15,50,0.85)] sm:p-9"
+                  className="group relative flex w-[min(82vw,24rem)] flex-col overflow-hidden rounded-[1.75rem] border border-white/60 bg-white p-2.5 text-ink shadow-[0_30px_70px_-40px_rgba(8,15,50,0.7)] transition-[border-color,box-shadow] duration-700 ease-out-expo hover:border-white hover:shadow-[0_40px_90px_-35px_rgba(8,15,50,0.85)] lg:h-[min(60vh,31rem)] lg:min-h-[26rem]"
                 >
-                  <div className="flex items-start justify-between">
-                    <span className="text-eyebrow text-accent-strong">{pad2(i + 1)}</span>
-                    <span className="grid h-14 w-14 place-items-center rounded-full border border-blue-100 bg-accent-soft text-accent transition-all duration-700 ease-out-expo group-hover:rotate-[20deg] group-hover:border-accent group-hover:bg-accent group-hover:text-white">
-                      <Icon size={24} />
+                  {/* Framed photograph — fills the card's free height on desktop */}
+                  {p.image && (
+                    <div className="relative aspect-[16/10] overflow-hidden rounded-[1.35rem] bg-sand lg:aspect-auto lg:min-h-[10rem] lg:flex-1">
+                      <Image
+                        src={images[p.image].src}
+                        alt={images[p.image].alt}
+                        fill
+                        sizes="(min-width: 1024px) 24rem, 82vw"
+                        placeholder="blur"
+                        className="object-cover transition-transform duration-[1400ms] ease-out-expo group-hover:scale-[1.06]"
+                      />
+                      <div aria-hidden="true" className="absolute inset-0 bg-gradient-to-t from-ink/15 via-transparent to-transparent" />
+                      <span className="text-eyebrow absolute left-3 top-3 rounded-full bg-white/90 px-2.5 py-1 text-accent-strong backdrop-blur">
+                        {pad2(i + 1)}
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="relative px-4 pb-5 pt-0 sm:px-5 sm:pb-6">
+                    {/* Icon badge overlapping the photograph */}
+                    <span className="relative -mt-7 grid h-14 w-14 place-items-center rounded-2xl bg-[linear-gradient(135deg,var(--color-blue-700),var(--color-blue-500))] text-white shadow-[0_14px_30px_-12px_rgba(35,80,240,0.85)] ring-4 ring-white transition-transform duration-700 ease-out-expo group-hover:-rotate-6 group-hover:scale-105">
+                      <Icon size={24} strokeWidth={1.5} />
                     </span>
-                  </div>
-                  <div className="flex flex-col gap-4">
-                    <h3 className="text-display-sm text-balance">{p.title}</h3>
-                    <p className="text-[0.9375rem] leading-relaxed text-stone">{p.description}</p>
+                    <h3 className="text-display-sm mt-4 text-balance">{p.title}</h3>
+                    <p className="mt-2 text-[0.9375rem] leading-relaxed text-stone">{p.description}</p>
                   </div>
                 </Reveal>
               </CardFX>

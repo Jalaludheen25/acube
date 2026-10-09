@@ -66,15 +66,19 @@ export default function ContactPage() {
               </Detail>
               <Detail icon={<Phone size={18} />} label="Phone">
                 {site.phones.map((p) => (
-                  <a key={p.tel} href={`tel:${p.tel}`} className={linkClass}>
-                    {p.display}
-                  </a>
+                  <span key={p.tel} className="flex items-baseline gap-2.5">
+                    <a href={`tel:${p.tel}`} className={linkClass}>
+                      {p.display}
+                    </a>
+                    <span className="text-xs text-stone">{p.label}</span>
+                  </span>
                 ))}
               </Detail>
               <Detail bare icon={<WhatsAppLogo size={44} className="transition-transform duration-500 ease-out-expo group-hover:-translate-y-px group-hover:-rotate-[10deg] group-hover:scale-110" />} label="WhatsApp">
                 <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={linkClass}>
                   {site.whatsapp.display}
                 </a>
+                <span className="text-xs text-stone">{site.whatsapp.purpose}</span>
               </Detail>
               <Detail icon={<MapPin size={18} />} label="Office">
                 <address className="not-italic leading-relaxed">{site.address.formatted}</address>

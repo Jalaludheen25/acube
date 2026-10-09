@@ -99,15 +99,23 @@ export function Footer() {
                   </a>
                 </li>
                 {site.phones.map((p) => (
-                  <li key={p.tel}>
+                  <li key={p.tel} className="flex items-baseline gap-2">
                     <a href={`tel:${p.tel}`} className={linkClass}>
                       {p.display}
                     </a>
+                    <span className="text-xs text-mist">{p.label}</span>
                   </li>
                 ))}
                 <li>
-                  <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className={`${linkClass} group inline-flex items-center gap-2.5`}>
-                    <WhatsAppLogo size={20} className="transition-transform duration-500 ease-out-expo group-hover:-translate-y-px group-hover:-rotate-[10deg] group-hover:scale-110" /> WhatsApp
+                  <a
+                    href={whatsappUrl()}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`WhatsApp ${site.whatsapp.display} — ${site.whatsapp.purpose}`}
+                    className={`${linkClass} group inline-flex items-center gap-2.5`}
+                  >
+                    <WhatsAppLogo size={20} className="transition-transform duration-500 ease-out-expo group-hover:-translate-y-px group-hover:-rotate-[10deg] group-hover:scale-110" />{' '}
+                    {site.whatsapp.display}
                   </a>
                 </li>
               </ul>

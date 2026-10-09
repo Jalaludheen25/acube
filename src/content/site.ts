@@ -13,14 +13,17 @@ export const site = {
   tagline: 'Helping businesses establish themselves confidently across the UAE.',
   yearsOfExperience: 20,
   email: 'acubedubai@gmail.com',
+  /** Numbers for calls. The first is the landline (used as the main number in structured data). */
   phones: [
-    { display: '+971 4 39 33 826', tel: '+97143933826', label: 'Office' },
-    { display: '+971 55 775 4101', tel: '+971557754101', label: 'Mobile' },
-    { display: '+971 50 531 7272', tel: '+971505317272', label: 'Mobile' },
+    { display: '+971 4 547 3004', tel: '+97145473004', label: 'Landline' },
+    { display: '+971 58 279 6644', tel: '+971582796644', label: 'Mobile' },
+    { display: '+971 52 646 0337', tel: '+971526460337', label: 'Mobile' },
   ],
+  /** WhatsApp is a separate number, for enquiries and consultations. */
   whatsapp: {
-    display: '+971 55 775 4101',
-    number: '971557754101',
+    display: '+971 50 309 7274',
+    number: '971503097274',
+    purpose: 'Enquiries & consultation',
     greeting: "Hello ACUBE, I'd like to ask about your services.",
   },
   address: {
